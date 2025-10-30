@@ -1,4 +1,4 @@
-# 🎥 Crowd Energy Analyzer
+# 🎥 Crowd Energy Analyzer — Nightly AI Intern Challenge
 
 > **Objective:**  
 > Analyze crowd **energy dynamics** from short (30–60 s) sports or concert videos by combining **audio intensity** and **video motion**.  
@@ -136,19 +136,19 @@ This turns the data into real-world event production insight.
 
 ```mermaid
 flowchart TD
-    A[🎬 Input Video Clip] --> B[🔊 Extract Audio Track]
-    A --> C[🎞 Extract Frames]
-    B --> D[📊 Compute RMS Audio Energy]
-    C --> E[🧮 Compute Frame Differences]
+    A[Input Video Clip] --> B[Extract Audio Track]
+    A --> C[Extract Frames]
+    B --> D[Compute RMS Audio Energy]
+    C --> E[Compute Frame Differences]
     D --> F[Normalize Audio Energy]
     E --> G[Normalize Video Energy]
-    F --> H[🔗 Combine via Weighted Sum (E_total)]
+    F --> H[Combine via Weighted Sum]
     G --> H
-    H --> I[📈 Smooth Energy Signal]
-    I --> J[⚡ Detect 10s High-Energy Segment]
-    I --> K[🌙 Detect Low-Energy Moments]
-    J --> L[🎥 Export Highlight Clip]
-    K --> M[💡 Generate Show Cue Ideas]
+    H --> I[Smooth Energy Signal]
+    I --> J[Detect 10s High-Energy Segment]
+    I --> K[Detect Low-Energy Moments]
+    J --> L[Export Highlight Clip]
+    K --> M[Generate Show Cue Ideas]
 ```
 
 ---
@@ -157,11 +157,11 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    A[E_total(t)] --> B[Rolling Mean Filter]
+    A[Energy Timeline] --> B[Rolling Mean Filter]
     B --> C[Find Max 10s Window]
     C --> D[Highlight Segment Extraction]
-    B --> E[Find Energy < mean - std]
-    E --> F[Low-Energy Cue Generation]
+    B --> E[Find Low Energy Moments]
+    E --> F[Cue Generation]
 ```
 
 ---
@@ -234,5 +234,3 @@ It fulfills Nightly's challenge goal: **creativity, clarity, and problem-solving
 > "Turning sound and motion into emotion."
 
 ---
-
-**Note:** This README.md is ready for direct GitHub use with native Mermaid diagram support and LaTeX-style math rendering (if your repository has math support enabled).
